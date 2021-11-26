@@ -1,0 +1,26 @@
+ALGORITHM TriDeCarte
+FUNCTION TriCarte(Tab1[1:n]) : INTEGER
+VAR
+    Tab1: ARRAY_OF INTEGER[1..100];
+    Element,N: INTEGER;
+    i,j,n,m: INTEGER;
+BEGIN
+//-------------------REMPLISSAGE ET CREATION DU TABLEAU-------------------- 
+    Write("Donnez la taille du tableau1");
+    Read(m);
+    FOR i FROM 0  STEP m-1 step 1 DO
+        Write("Donnez l'élement à l'index",i);
+        Read(Tab1[i]);
+    END_FOR
+//---------RESOLUTION---------------------
+    FOR j FROM 0 STEP 2=N step 1 DO
+        Element = Tab1[i];
+        j=i
+        WHILE (j > 0 && Tab1[j] > Element) DO
+            Tab1[j] = Tab1[j-1];
+            j--;
+        END_WHILE
+        Tab1[j] = Element;
+    END_FOR
+    RETURN Element;
+END
